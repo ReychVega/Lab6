@@ -65,6 +65,109 @@ public class linkedStackNGTest {
         }
 
     }
+    
+    
+        
+        @Test
+    public void testSomeMethod3() {
+        try {
+            ArrayStack anim = new ArrayStack(10);
+            linkedStack pil = new linkedStack();
+            
+            for (int i = 0; i < 10; i++) {
+                
+                pil.push(util.Utility.random(99999));
+                
+            }
+            
+            Animal a =new Animal("Pep","Perro",4);
+            anim.push(a);
+            Animal a1 =new Animal("Sizy","Gata",4);
+            anim.push(a1);
+            Animal a2 =new Animal("Ror","Hamster",2);
+            anim.push(a2);
+            Animal a3 =new Animal("Aly","Conejo",1);
+            anim.push(a3);
+            Animal a4 =new Animal("Ub","Perro",6);
+            anim.push(a4);
+            Animal a5 =new Animal("Son Goku","Tortuga",8);
+            anim.push(a5);
+            Animal a6 =new Animal("Silizor","Gato",9);
+            anim.push(a6);
+            Animal a7 =new Animal("Kira","Perro",6);
+            anim.push(a7);
+            Animal a8 =new Animal("Umtii","Pez",1);
+            anim.push(a8);
+            Animal a9 =new Animal("Alizon","Loro",3);
+            anim.push(a9);
+            
+            pil.push(anim); //Agregamos el objeto arrayStack tipo animal que ocntiene 10 animalees
+            
+            pil.push("Croacia");
+            pil.push("Suiza");
+            pil.push("Costa Rica");
+            pil.push("Holanda");
+            pil.push("Noruega");
+            
+            
+            //Indique la cantidad de elementos apilados 
+            System.out.println("     ");
+            System.out.println("------");
+            System.out.println("Cantidad de elementos apilados en la pila enlazada: ");
+            System.out.println("     ");
+            System.out.println(pil.size());
+            System.out.println("     ");
+            System.out.println("------");
+            System.out.println("     ");
+            
+            //Indique el contenido de la pila
+            System.out.println("     ");
+            System.out.println(pil.toString());
+            System.out.println("     ");
+            System.out.println("------");
+            
+            //Desapila 15 elementos y muestrelos por consola
+            System.out.println("     ");
+            System.out.println(" Elements of likedStack pop ");
+            for (int i = 0; i < 15; i++) {
+                System.out.println(pil.pop()+"\n"); 
+            }
+            System.out.println("     ");
+            System.out.println("------");
+            
+            //Muestre el elemento del tope de la pila
+            System.out.println("     ");
+            System.out.println("Element of top of the linked Stack");
+            System.out.println("     ");
+            System.out.println(pil.top());
+            System.out.println("     ");
+            System.out.println("------");
+            
+            //Indique la cantidad de elementos apilados
+            System.out.println("     ");
+            System.out.println(" total elements ");
+            System.out.println("     ");
+            System.out.println(pil.size());
+            System.out.println("     ");
+            System.out.println("------");
+            
+            //Muestre el contenido de la pila por consola
+            System.out.println("     ");
+            System.out.println(pil.toString());
+            System.out.println("     ");
+            System.out.println("------");
+            
+            
+            
+            
+            
+        } catch (StackException ex) {
+            Logger.getLogger(ArrayStackNGTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    
 
     //funcional
     private boolean checkParenthesis(String expresion) throws StackException {

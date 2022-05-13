@@ -88,7 +88,7 @@ public class linkedStack implements Stack {
         try {
             linkedStack auxStack = new linkedStack();
             while(!isEmpty()){
-                    result+=peek()+" ";
+                    result+=peek()+" \n ";
                     auxStack.push(pop());
             }
             //ahora debemos dejar la pila como al inicio
