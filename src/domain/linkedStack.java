@@ -81,26 +81,25 @@ public class linkedStack implements Stack {
         return element;
 
     }
-    
-        @Override
+
+    @Override
     public String toString() {
         String result = " Linked Stack content: \n";
         try {
             linkedStack auxStack = new linkedStack();
-            while(!isEmpty()){
-                    result+=peek()+" \n ";
-                    auxStack.push(pop());
+            while (!isEmpty()) {
+                result += peek() + " \n ";
+                auxStack.push(pop());
             }
             //ahora debemos dejar la pila como al inicio
-            while(!auxStack.isEmpty()){
+            while (!auxStack.isEmpty()) {
                 push(auxStack.pop());
             }
         } catch (StackException ex) {
-                Logger.getLogger(ArrayStack.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
+            Logger.getLogger(ArrayStack.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return result;
     }
-    
 
 }
