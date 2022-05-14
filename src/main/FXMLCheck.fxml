@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FXMLCheckController">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="873.0">
+         <children>
+            <Pane prefHeight="105.0" prefWidth="1016.0" style="-fx-background-color: pink;">
+               <children>
+                  <Label layoutX="170.0" layoutY="24.0" text="Check Arithmetic Expressions">
+                     <font>
+                        <Font name="Arial" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="6.0" layoutY="79.0" prefHeight="508.0" prefWidth="1007.0">
+               <children>
+                  <TextField fx:id="e1TextField" layoutX="354.0" layoutY="68.0" prefHeight="39.0" prefWidth="326.0" />
+                  <TextField fx:id="e2TextField" layoutX="354.0" layoutY="126.0" prefHeight="38.0" prefWidth="325.0" />
+                  <TextField fx:id="e3TextField" layoutX="355.0" layoutY="183.0" prefHeight="39.0" prefWidth="324.0" />
+                  <TextField fx:id="e4TextField" layoutX="353.0" layoutY="246.0" prefHeight="37.0" prefWidth="323.0" />
+                  <TextField fx:id="e5TextField" layoutX="355.0" layoutY="307.0" prefHeight="37.0" prefWidth="322.0" />
+                  <Label layoutX="142.0" layoutY="69.0" text="Expression 1:">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="142.0" layoutY="123.0" text="Expression 2:">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="142.0" layoutY="180.0" text="Expression 3:">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="142.0" layoutY="242.0" text="Expression 4:">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="142.0" layoutY="308.0" text="Expression 5:">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="Image1" fitHeight="62.0" fitWidth="61.0" layoutX="755.0" layoutY="60.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../yes.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="Image2" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../yes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image3" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="175.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../yes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image4" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="237.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../yes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image5" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="302.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../yes.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="-7.0" layoutY="376.0" prefHeight="181.0" prefWidth="1016.0" style="-fx-background-color: #DCDCDC;">
+                     <children>
+                        <Button fx:id="btnCheck" layoutX="283.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCheckOnAction" prefHeight="74.0" prefWidth="159.0" text="Check">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnClean" layoutX="579.0" layoutY="54.0" mnemonicParsing="false" onAction="#bntCleanOnAction" prefHeight="74.0" prefWidth="160.0" text="Clean">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="TextSuccess" layoutX="349.0" layoutY="31.0" />
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="Image1_1" fitHeight="62.0" fitWidth="61.0" layoutX="755.0" layoutY="60.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../no.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="Image2_1" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../no.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image3_1" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="175.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../no.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image4_1" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="237.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../no.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Image5_1" fitHeight="77.0" fitWidth="61.0" layoutX="755.0" layoutY="302.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../no.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
