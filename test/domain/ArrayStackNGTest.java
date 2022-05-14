@@ -54,9 +54,7 @@ public class ArrayStackNGTest {
             System.out.println("----------------------------------------------------------------");
             System.out.println("Desapila la especie de gatos con tres años de edad." + "\n");
             System.out.println(desapilarObjetos(stack, new Animal("", "gato", 3)));//especie=perro, edad=1
-            
-//especie=gato, edad=3*
-//                 
+                             
         } catch (StackException ex) {
             Logger.getLogger(ArrayStackNGTest.class.getName()).log(Level.SEVERE, null, ex);
         }
