@@ -156,7 +156,7 @@ public class Utility {
 
     public static boolean isOperator(char charAt) {
         boolean res = false;
-        if (charAt == '/' || charAt == '+' || charAt == '*') {
+        if (charAt == '/' || charAt == '+' || charAt == '*' || charAt == '-') {
             res = true;
 
         }
