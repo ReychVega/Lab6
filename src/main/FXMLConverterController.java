@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import static util.Utility.isOperator;
 
 /**
  * FXML Controller class
@@ -137,4 +138,28 @@ public class FXMLConverterController implements Initializable {
         
     }
     
+    
+    private String resultFix(String expresion)throws StackException{
+
+        expresion = expresion.replaceAll("\\s", "");
+        linkedStack s = new linkedStack();
+
+        for (int i = 0; i < expresion.length(); i++) {
+
+            if (util.Utility.isLetter(expresion.charAt(i)) ||
+                (Character.isDigit(expresion.charAt(i))))
+            {
+                s.push("" + expresion.charAt(i));
+            } else {
+
+                if (isOperator(expresion.charAt(i))) {
+                    double SecondOp = Double.parseDouble(String.valueOf(s.pop()));
+                    double firstOp = Double.parseDouble(String.valueOf(s.pop()));
+
+                    s.push("" + util.Utility.perFormat(util.Utility.arithmeticResult(expresion.charAt(i), firstOp, SecondOp)));
+                }
+            }
+        }
+        return (String) s.top();
+    }
 }

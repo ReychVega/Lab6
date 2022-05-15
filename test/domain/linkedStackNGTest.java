@@ -57,7 +57,7 @@ public class linkedStackNGTest {
             String hilera4 = "(2-2)*4/5())";//incorrecta
             
             System.out.println(" Prueba metodo checkParenthesis ");
-
+          //  System.out.println(hilera4.replaceAll("\\s", ""));
             System.out.println(checkParenthesis(hilera));
             System.out.println(checkParenthesis(hilera2));
             System.out.println(checkParenthesis(hilera3));
@@ -196,17 +196,15 @@ public class linkedStackNGTest {
         return res;
     }
     
-       @Test
+    @Test
     public void testSomeMethod4() {
         try {
-
 
             String hilera = "2-(3-5)*(10/2)";//correcta
             String hilera2 = "2-(3-5)*(10/2-)";//incorrecta
             String hilera3 = "((a * b) / (a + c))";//correcta
             String hilera4 = "2-(3-5)*(10/2)";//correcta
             String hilera5 = "((2-10*5)-3";//incorrecta
-            
 
             System.out.println(" Prueba metodo CheckExpressions");
             System.out.println(checkExpressions(hilera));
@@ -217,11 +215,22 @@ public class linkedStackNGTest {
             System.out.println("  ");
             System.out.println(" Method infixNotation ");
             //AB*AC+/ =  ((A * B) / (A + C))
-            String hilera7="AB*AC+/";
-            System.out.println("Formula sin el infix: "+hilera7);
-            System.out.println("Formula con infix: "+infixNotation(hilera7));
+            String hilera7 = "AB*AC+/";
+            System.out.println("Formula sin el infix: " + hilera7);
+            System.out.println("Formula con infix: " + infixNotation(hilera7));
+
+              //25*73+/ = ((2 * 5) / (7 + 3)) = 1
+            String hilera8 = "25*73+/";
+            System.out.println("Formula sin el infix: " + hilera8);
+            System.out.println("Formula con infix: " + infixNotation(hilera8));
             
+                //59 + 2*65* + = (((5 + 9) * 2) + (6 * 5)) = 58
+
+            String hilera9 = "59 + 2*65* +"; 
+            System.out.println("Formula sin el infix: " + hilera9);
+            System.out.println("Formula con infix: " + infixNotation(hilera9));
             
+        
         } catch (StackException ex) {
             Logger.getLogger(ArrayStackNGTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -231,14 +240,17 @@ public class linkedStackNGTest {
     private boolean checkExpressions(String expression) throws StackException {
         expression = expression.replaceAll("\\s", "");
         boolean res = false;
+        int result=0;
         linkedStack pila = new linkedStack();
         //primero valido que los parentesis que contiene la expresión estén correctos
         if (checkParenthesis(expression) == true) {//si los parentesis están bien, ahora valido lo demás
 
-            for (int i = 0; i < expression.length()-1; i++) {
+            for (int i = 0; i < expression.length() - 1; i++) {
                 //si es una letra o un numero
-                if (util.Utility.isLetter(expression.charAt(i)) || util.Utility.isNumber(expression.charAt(i)) && (expression.charAt(i) != '(') && expression.charAt(i) != '(') {
+                if (util.Utility.isLetter(expression.charAt(i)) || util.Utility.isNumber(expression.charAt(i))
+                        && (expression.charAt(i) != '(') && expression.charAt(i) != '(') {
 
+                    
                     if (pila.isEmpty()) {//Si la pila está vacía entonces agregue el numero o la letra a la pila
                         pila.push(expression.charAt(i));
                     }
@@ -274,20 +286,24 @@ public class linkedStackNGTest {
 
         return res;
 
-    } 
-    
-    
-    
-    
+    }
+
+
     
     
 
     private String infixNotation(String expresion) throws StackException {
         expresion = expresion.replaceAll("\\s", "");
         linkedStack infixPila = new linkedStack();
+        
         String exp = "";
+        
         for (int i = 0; i < expresion.length(); i++) {
-            if (util.Utility.isLetter(expresion.charAt(i)) || util.Utility.isNumber(expresion.charAt(i)) && (expresion.charAt(i) != '(') && expresion.charAt(i) != '(') {//Si es una letra o un número
+            
+            if (util.Utility.isLetter(expresion.charAt(i)) 
+                    || (util.Utility.isNumber(expresion.charAt(i)) && (expresion.charAt(i) != '(')) 
+                    && (expresion.charAt(i) != '(')) {//Si es una letra o un número
+                
                 infixPila.push("" + expresion.charAt(i));
             } else {
                 if (util.Utility.isOperator(expresion.charAt(i))) {//Si es un operador
@@ -299,12 +315,39 @@ public class linkedStackNGTest {
                 }
             }
         }
-
-
         exp = (String) infixPila.top();
         return exp;
 
     }
 
     //falta el metodo que retorne el resultado
+    private double resultInfixNotation(String s) throws StackException{
+      linkedStack infixPila = new linkedStack();
+      int result=0;
+      String aux="";  
+        for (int i = 0; i < s.length(); i++) {
+            if (util.Utility.isLetter(s.charAt(i))) {//si es letra,, result es cero
+                return result;
+            }
+        }
+        
+        String[] parts=aux.split("*");
+        
+                //orden de parentesis.
+                //orden de signos
+        
+        return result;
+    }
 }
+/* infixPila.push("" + expresion.charAt(i));
+            } else {
+                if (util.Utility.isOperator(expresion.charAt(i))) {//Si es un operador
+                    //Se extraen dos elementos del tope de la pila
+                    String operando1 = (String) infixPila.pop();
+                    String operando2 = (String) infixPila.pop();
+                    //Seguimos la operacion "operando operador operando"
+                    infixPila.push("(" + operando2 + expresion.charAt(i) + operando1 + ")");
+                }
+            }
+        }
+        exp = (String) infixPila.top();*/
