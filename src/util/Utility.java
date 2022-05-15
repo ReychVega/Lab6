@@ -178,7 +178,7 @@ public class Utility {
       return false;
     }
 
-    public static double arithmeticResult(Character operator, double a, double b) {
+    public static double arithmeticResult(char operator, double a, double b) {
 
         switch (operator) {
 

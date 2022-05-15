@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
+import static util.Utility.isOperator;
 
 /**
  *
@@ -218,11 +219,15 @@ public class linkedStackNGTest {
             String hilera7 = "AB*AC+/";
             System.out.println("Formula sin el infix: " + hilera7);
             System.out.println("Formula con infix: " + infixNotation(hilera7));
+            
 
               //25*73+/ = ((2 * 5) / (7 + 3)) = 1
             String hilera8 = "25*73+/";
             System.out.println("Formula sin el infix: " + hilera8);
             System.out.println("Formula con infix: " + infixNotation(hilera8));
+            System.out.println("Formula con infixResult: " + resultFix(hilera8));
+            //Demostrar que sí funciona el metodo result
+            System.out.println("Concatenado = "+infixNotation(hilera8)+" = "+resultFix(hilera8));
             
                 //59 + 2*65* + = (((5 + 9) * 2) + (6 * 5)) = 58
 
@@ -287,6 +292,30 @@ public class linkedStackNGTest {
         return res;
 
     }
+    
+     private String resultFix(String expression) throws StackException {
+        expression = expression.replaceAll("\\s", "");
+        linkedStack s = new linkedStack();
+
+        for (int i = 0; i < expression.length(); i++) {
+            //getClass().isPrimitive();
+            if (Character.isLetter(expression.charAt(i))
+                    || (Character.isDigit(expression.charAt(i)))) {
+                s.push("" + expression.charAt(i));
+            } else {
+                if (isOperator(expression.charAt(i))) {
+                    double SecondOp = Double.parseDouble(String.valueOf(s.pop()));
+                    double firstOp = Double.parseDouble(String.valueOf(s.pop()));
+                    //Se satisface: Operando operador operando
+                    //El resultado anterior se almacena en el tope de la pila
+                    
+                    s.push("" + util.Utility.arithmeticResult(expression.charAt(i), firstOp, SecondOp));
+                }//ifOperando
+
+            }
+        }
+        return (String) s.top();
+    }
 
 
     
@@ -320,34 +349,4 @@ public class linkedStackNGTest {
 
     }
 
-    //falta el metodo que retorne el resultado
-    private double resultInfixNotation(String s) throws StackException{
-      linkedStack infixPila = new linkedStack();
-      int result=0;
-      String aux="";  
-        for (int i = 0; i < s.length(); i++) {
-            if (util.Utility.isLetter(s.charAt(i))) {//si es letra,, result es cero
-                return result;
-            }
-        }
-        
-        String[] parts=aux.split("*");
-        
-                //orden de parentesis.
-                //orden de signos
-        
-        return result;
-    }
 }
-/* infixPila.push("" + expresion.charAt(i));
-            } else {
-                if (util.Utility.isOperator(expresion.charAt(i))) {//Si es un operador
-                    //Se extraen dos elementos del tope de la pila
-                    String operando1 = (String) infixPila.pop();
-                    String operando2 = (String) infixPila.pop();
-                    //Seguimos la operacion "operando operador operando"
-                    infixPila.push("(" + operando2 + expresion.charAt(i) + operando1 + ")");
-                }
-            }
-        }
-        exp = (String) infixPila.top();*/
