@@ -175,7 +175,24 @@ public class Utility {
                 &&(animal.getAge()==animal2.getAge())) {
             return true;
         }
-      return false;        
+      return false;
+    }
+
+    public static double arithmeticResult(Character operator, double a, double b) {
+
+        switch (operator) {
+
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+
+        }
+        return 0;
     }
 
 }
