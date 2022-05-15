@@ -5,6 +5,7 @@
  */
 package util;
 
+import domain.Animal;
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -85,6 +86,8 @@ public class Utility {
         if (a instanceof Character && b instanceof Character) {
             return "Character";
         }
+       
+        
         return "unknown";
     }
 
@@ -163,6 +166,16 @@ public class Utility {
 
         return res;
 
+    }
+    
+    public static boolean containsObject(Object a,Object b){
+    Animal animal=(Animal)a;
+    Animal animal2=(Animal)b;
+        if ((animal.getSpecie().equals(animal2.getSpecie()))
+                &&(animal.getAge()==animal2.getAge())) {
+            return true;
+        }
+      return false;        
     }
 
 }

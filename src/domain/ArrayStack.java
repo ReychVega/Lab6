@@ -11,7 +11,8 @@ import java.util.logging.Logger;
  *
  * @author Profesor Gilberth Chaves A <gchavesav@ucr.ac.cr>
  */
-public class ArrayStack implements Stack {
+public class ArrayStack implements Stack
+{
     private int n; //el tam max de la pila
     private int top; //para llevar el control del tope de la pila, apunta al ultimo campo del arreglo
     private Object stack[];
@@ -21,11 +22,11 @@ public class ArrayStack implements Stack {
         if(n<=0) System.exit(1); //se sale
         this.n = n;
         this.top = -1; //indica q la pila esta vacia
-        this.stack = new Object[n];
+        this.stack = new Object[n];//inicializa un arreglo de clase
     }
     
     @Override
-    public int size() {
+    public int size() {//preguntar
         return top+1;
     }
 
@@ -41,21 +42,21 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public Object peek() throws StackException {
+    public Object peek() throws StackException {//tope de la pila
         if(isEmpty())
             throw new StackException("Array Stack is empty");
         return this.stack[top];
     }
 
     @Override
-    public Object top() throws StackException {
+    public Object top() throws StackException {//el top 
         if(isEmpty())
             throw new StackException("Array Stack is empty");
         return this.stack[top];
     }
 
     @Override
-    public void push(Object element) throws StackException {
+    public void push(Object element) throws StackException {//agrega un elemento
         //if(top==n-1)
         if(top==stack.length-1)
             throw new StackException("Array Stack is full");
@@ -63,7 +64,7 @@ public class ArrayStack implements Stack {
     }
 
     @Override
-    public Object pop() throws StackException {
+    public Object pop() throws StackException {//elimina el último
         if(isEmpty())
             throw new StackException("Array Stack is empty");
         return stack[top--];
@@ -75,7 +76,7 @@ public class ArrayStack implements Stack {
         try {
             ArrayStack auxStack = new ArrayStack(size());
             while(!isEmpty()){
-                    result+=peek()+" ";
+                    result+=peek()+"\n";
                     auxStack.push(pop());
             }
             //ahora debemos dejar la pila como al inicio
